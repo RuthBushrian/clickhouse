@@ -28,7 +28,7 @@ jobs:
       run: |
         for file in ./sql/*.sql; do echo "$(basename "$file")"; done
         clickhouse-client --host gns0hl2of0.us-east-1.aws.clickhouse.cloud \
-                  --port 9440 \
+                  --port 8443 \
                   --user default \
                   --password jL~vKKxn2rgvO
 

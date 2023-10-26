@@ -16,4 +16,6 @@ jobs:
     - name: Install ClickHouse Client
       run: |
         sudo apt-get update
+        sudo apt-get install -y clickhouse-client
+
       working-directory: $GITHUB_WORKSPACE

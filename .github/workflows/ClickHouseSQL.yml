@@ -29,8 +29,8 @@ jobs:
         for file in ./sql/*.sql; do echo "$(basename "$file")"; done
         clickhouse-client --host gns0hl2of0.us-east-1.aws.clickhouse.cloud \
                   --port 8443 \
-                  --user default \
-                  --password jL~vKKxn2rgvO
+                  --user "default" \
+                  --password "jL~vKKxn2rgvO"
 
     # clickhouse-client  -host gns0hl2of0.us-east-1.aws --secure --port 9440 --user default --password dQmdvuZ8Isw~t  
     # CREATE TABLE my_table ( id UInt32, name String  ) ENGINE = MergeTree()  ORDER BY id;

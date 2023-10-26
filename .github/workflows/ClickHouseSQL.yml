@@ -13,7 +13,20 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
+    - name: Add ClickHouse APT repository
+      run: |
+        echo "deb http://repo.yandex.ru/clickhouse/deb/stable/ main/" | sudo tee /etc/apt/sources.list.d/clickhouse.list
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv E0C56BD4
+
+
     - name: Install ClickHouse Client
       run: |
         sudo apt-get update
         sudo apt-get install -y clickhouse-client
+
+    # - name: Run SQL Scripts
+    #   run: |
+    #     for file in ./sql/*.sql; do
+    #       clickhouse-client --host gns0hl2of0.us-east-1.aws --port 8443 --user default --password dQmdvuZ8Isw~t --query "$(cat $file)"
+    #     done
+      # working-directory: $GITHUB_WORKSPACE

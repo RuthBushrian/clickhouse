@@ -15,6 +15,7 @@ jobs:
 
     - name: Install ClickHouse Client
       run: |
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E0C56BD4
         sudo apt-get update
         sudo apt-get install -y clickhouse-client
 

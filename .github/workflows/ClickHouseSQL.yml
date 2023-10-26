@@ -13,14 +13,14 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Add ClickHouse APT repository
-      run: |
-        echo "deb http://repo.yandex.ru/clickhouse/deb/stable/ main/" | sudo tee /etc/apt/sources.list.d/clickhouse.list
-        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv E0C56BD4
     # - name: Add ClickHouse APT repository
     #   run: |
-    #     echo "deb https://packagecloud.io/altinity/clickhouse/ubuntu/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/clickhouse.list
-    #     curl -L https://packagecloud.io/altinity/clickhouse/gpgkey | sudo apt-key add -
+    #     echo "deb http://repo.yandex.ru/clickhouse/deb/stable/ main/" | sudo tee /etc/apt/sources.list.d/clickhouse.list
+    #     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv E0C56BD4
+    - name: Add ClickHouse APT repository
+      run: |
+        echo "deb https://packagecloud.io/altinity/clickhouse/ubuntu/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/clickhouse.list
+        curl -L https://packagecloud.io/altinity/clickhouse/gpgkey | sudo apt-key add -
 
 
     - name: Install ClickHouse Client

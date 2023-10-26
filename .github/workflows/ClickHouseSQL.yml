@@ -1,0 +1,26 @@
+name: Run ClickHouse SQL Scripts
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch
+
+jobs:
+  run-sql:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Install ClickHouse Client
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y clickhouse-client
+
+    - name: Run SQL Scripts
+      run: |
+        for file in ./sql/*.sql; do
+          clickhouse-client --host gns0hl2of0.us-east-1.aws --port 8443 --user default --password dQmdvuZ8Isw~t --query "$(cat $file)"
+        done
+      working-directory: $GITHUB_WORKSPACE

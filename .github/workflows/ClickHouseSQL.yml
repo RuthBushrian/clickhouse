@@ -13,6 +13,12 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
+    - name: Add the ClickHouse APT Repository
+      run: |
+        sudo apt install apt-transport-https
+        sudo sh -c 'echo "deb http://repo.clickhouse.tech/deb/stable/ main/" > /etc/apt/sources.list.d/clickhouse.list'
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv E0C56BD4
+
     - name: Install ClickHouse Client
       run: |
         sudo apt update

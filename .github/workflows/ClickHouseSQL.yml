@@ -7,7 +7,7 @@ on:
 
 jobs:
   run-sql:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
     - name: Checkout Repository
@@ -15,9 +15,9 @@ jobs:
 
     - name: Add the ClickHouse APT Repository
       run: |
-        sudo apt install apt-transport-https
-        sudo sh -c 'echo "deb http://repo.clickhouse.tech/deb/stable/ main/" > /etc/apt/sources.list.d/clickhouse.list'
-        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv E0C56BD4
+        sudo add-apt-repository 'deb http://ppa.launchpad.net/yandex-clickhouse/clickhouse-server/ubuntu ubuntu-20.04 main'
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 5860E57C
+
 
     - name: Install ClickHouse Client
       run: |

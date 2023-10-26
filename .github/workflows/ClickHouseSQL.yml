@@ -15,7 +15,7 @@ jobs:
 
     - name: Add the ClickHouse APT Repository
       run: |
-        sudo add-apt-repository 'deb http://ppa.launchpad.net/yandex-clickhouse/clickhouse-server/ubuntu ubuntu-20.04 main'
+        sudo add-apt-repository 'deb http://ppa.launchpad.net/yandex-clickhouse/clickhouse-server/ubuntu 20.04 main'
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 5860E57C
 
 

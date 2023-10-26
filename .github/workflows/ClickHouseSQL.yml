@@ -13,24 +13,11 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Install Dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y git gcc g++ cmake make libicu-dev libreadline-dev libmysqlclient-dev
-
-    - name: Build ClickHouse
-      run: |
-        cmake .
-        make -j$(nproc)
-
     - name: Install ClickHouse Client
       run: |
-        sudo make install
-
-    # - name: Install ClickHouse Client
-    #   run: |
-    #     sudo apt-get update
-    #     sudo apt-get install -y clickhouse-client
+        sudo apt update
+        sudo apt install clickhouse-client
+        clickhouse-client --version
 
     # - name: Run SQL Scripts
     #   run: |

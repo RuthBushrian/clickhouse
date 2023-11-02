@@ -20,7 +20,7 @@ jobs:
 
     - name: connect to clickhouse client
       run: |
-        ./clickhouse client --host gns0hl2of0.us-east-1.aws.clickhouse.cloud --secure --password 'z5KNWZt~yddf_' --query Create database IwishItllwork
+        ./clickhouse client --host gns0hl2of0.us-east-1.aws.clickhouse.cloud --secure --password 'z5KNWZt~yddf_' --query  'CREATE DATABASE db2'
 
     # - name: Run SQL Scripts
     #   run: |

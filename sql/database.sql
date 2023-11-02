@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS new_database_from_action
+CREATE DATABASE new_database_from_action
 
 

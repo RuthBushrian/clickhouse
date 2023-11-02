@@ -16,23 +16,9 @@ jobs:
     - name: download ClickHouse locally
       run: |
         curl https://clickhouse.com/ | sh
-
-
-    # - name: connect to clickhouse client
-    #   run: |
-    #     ./clickhouse client --host gns0hl2of0.us-east-1.aws.clickhouse.cloud --secure --password 'z5KNWZt~yddf_'
-    #     CREATE DATABASE db2
     
     - name: Run SQL Scripts
-      run: |
-        ./clickhouse client --host gns0hl2of0.us-east-1.aws.clickhouse.cloud --secure --password 'z5KNWZt~yddf_' --queries-file "./sql/tabels.sql"
-    # for file in ./sql/*.sql; do
-    #   ./clickhouse client --host gns0hl2of0.us-east-1.aws.clickhouse.cloud --secure --password 'z5KNWZt~yddf_' --query-file "$(cat $file)"
-    # done
-    # ./clickhouse client --query  'CREATE DATABASE db2'
-
-    # CREATE TABLE my_table ( id UInt32, name String  ) ENGINE = MergeTree()  ORDER BY id;
-
-
-
-      # working-directory: $GITHUB_WORKSPACE
+      run: |       
+        for file in ./sql/*.sql; do
+          ./clickhouse client --host gns0hl2of0.us-east-1.aws.clickhouse.cloud --secure --password 'z5KNWZt~yddf_' --queries-file file
+        done

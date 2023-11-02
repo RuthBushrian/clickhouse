@@ -13,26 +13,15 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Add the ClickHouse APT Repository
+    - name: download ClickHouse locally
       run: |
-        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E0C56BD4
+        curl https://clickhouse.com/ | sh
 
 
-    - name: Install ClickHouse Client
+    - name: connect to clickhouse client
       run: |
-        sudo apt update
-        sudo apt install clickhouse-client
-        clickhouse-client --version
+        ./clickhouse client --host gns0hl2of0.us-east-1.aws.clickhouse.cloud --secure --password 'z5KNWZt~yddf_'
 
     - name: Run SQL Scripts
       run: |
-        for file in ./sql/*.sql; do echo "$(basename "$file")"; done
-        clickhouse-client  --host 172-233-239-201.ip.linodeusercontent.com --port 80 --user reportetp --password report123#
-
-    # CREATE TABLE my_table ( id UInt32, name String  ) ENGINE = MergeTree()  ORDER BY id;
-
-    # for file in ./sql/*.sql; do
-    #   clickhouse-client --host gns0hl2of0.us-east-1.aws --port 8443 --user default --password dQmdvuZ8Isw~t --query "$(cat $file)"
-    # done
-
-      # working-directory: $GITHUB_WORKSPACE
+        Create database IwishItllwork

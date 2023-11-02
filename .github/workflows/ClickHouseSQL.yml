@@ -20,5 +20,5 @@ jobs:
     - name: Run SQL Scripts
       run: |       
         for file in ./sql/*.sql; do
-          ./clickhouse client --host 172-233-239-201.ip.linodeusercontent.com --secure --password 'report123#' --queries-file "$file"
+          ./clickhouse client --host 172-233-239-201.ip.linodeusercontent.com --password 'report123#' --queries-file "$file"
         done

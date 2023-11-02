@@ -25,7 +25,7 @@ jobs:
     
     - name: Run SQL Scripts
       run: |
-        ./clickhouse client --host gns0hl2of0.us-east-1.aws.clickhouse.cloud --secure --password 'z5KNWZt~yddf_' --queries-file "tabels.sql"
+        ./clickhouse client --host gns0hl2of0.us-east-1.aws.clickhouse.cloud --secure --password 'z5KNWZt~yddf_' --queries-file "./sql/tabels.sql"
     # for file in ./sql/*.sql; do
     #   ./clickhouse client --host gns0hl2of0.us-east-1.aws.clickhouse.cloud --secure --password 'z5KNWZt~yddf_' --query-file "$(cat $file)"
     # done

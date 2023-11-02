@@ -1,3 +1,3 @@
-CREATE DATABASE new_database_from_action
+CREATE DATABASE IF NOT EXISTS new_database_from_action
 
 
